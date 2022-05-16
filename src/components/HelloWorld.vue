@@ -1,5 +1,21 @@
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Vue + Vite + TypeScript + Tailwind!
-  </h1>
+  <div class="w-screen min-h-screen flex flex-col items-center justify-center space-y-2">
+    <h1 class="text-3xl font-bold underline">
+      Vue + Pinia + Vite + TypeScript + Tailwind!
+    </h1>
+    <span>Count is {{ counterStore.count }}</span>
+    <button
+      type="button"
+      class="border border-black p-2"
+      @click="counterStore.increment()"
+    >
+      Increment
+    </button>
+  </div>
 </template>
+
+<script setup lang="ts">
+import { useCounterStore } from '../stores/counter'
+
+const counterStore = useCounterStore()
+</script>
