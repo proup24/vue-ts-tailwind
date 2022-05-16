@@ -1,7 +1,9 @@
 <template>
-  <div class="w-screen min-h-screen flex flex-col items-center justify-center space-y-2">
+  <div
+    class="w-screen min-h-screen flex flex-col items-center justify-center space-y-2"
+  >
     <h1 class="text-3xl font-bold underline">
-      Vue + Pinia + Vite + TypeScript + Tailwind!
+      Vue + Pinia + Vite + TypeScript + Tailwind + Eslint + Prettier!
     </h1>
     <span>Count is {{ counterStore.count }}</span>
     <button
@@ -15,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCounterStore } from '../stores/counter'
+import { useCounterStore } from '@/stores/counter'
 
 const counterStore = useCounterStore()
 </script>
