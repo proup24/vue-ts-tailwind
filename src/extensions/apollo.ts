@@ -6,7 +6,7 @@ import {
 import { DefaultApolloClient } from '@vue/apollo-composable'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:1337/api/graphql'
+  uri: 'https://graphqlzero.almansi.me/api'
 })
 const cache = new InMemoryCache()
 const apolloClient = new ApolloClient({

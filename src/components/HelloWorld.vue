@@ -17,7 +17,11 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { fetchPosts } from '@/services/posts'
 import { useCounterStore } from '@/stores/counter'
 
 const counterStore = useCounterStore()
+
+onMounted(() => fetchPosts())
 </script>
