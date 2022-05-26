@@ -13,23 +13,11 @@
     >
       Increment
     </button>
-    <span v-if="loading"> Loading posts... </span>
-    <span v-if="error">Error: {{ error }}</span>
-    <code v-if="result">
-      <pre>
-        {{ JSON.stringify(result, undefined, 4) }}
-      </pre>
-    </code>
   </div>
 </template>
 
 <script setup lang="ts">
-import { usePosts } from '@/services/posts'
 import { useCounterStore } from '@/stores/counter'
 
 const counterStore = useCounterStore()
-
-const { result, loading, error } = usePosts({
-  options: { paginate: { page: 1 } }
-})
 </script>

@@ -1,6 +1,6 @@
 overwrite: true
 schema: "https://graphqlzero.almansi.me/api"
-documents: "src/**/*.ts"
+documents: "src/**/*.{ts,vue}"
 generates:
   src/generated/apollo-components.ts:
     plugins:
