@@ -13,15 +13,21 @@
     >
       Increment
     </button>
+    <pre>
+      <code>
+        isLoading {{ loading }}
+        error {{ error }}
+        {{ JSON.stringify(result) }}
+      </code>
+    </pre>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { fetchPosts } from '@/services/posts'
+import { usePosts } from '@/services/posts'
 import { useCounterStore } from '@/stores/counter'
 
 const counterStore = useCounterStore()
 
-onMounted(() => fetchPosts())
+const { result, loading, error } = usePosts()
 </script>

@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export const getPostsQuery = gql`
+export const GET_POSTS_QUERY = gql`
   query getPosts($options: PageQueryOptions) {
     posts(options: $options) {
       data {
