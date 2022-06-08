@@ -1,0 +1,29 @@
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client/core'
+import { DefaultApolloClient } from '@vue/apollo-composable'
+import { onError } from '@apollo/client/link/error'
+
+const httpLink = createHttpLink({
+  uri: 'https://graphqlzero.almansi.me/api'
+})
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.map(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    )
+
+  if (networkError) console.log(`[Network error]: ${networkError}`)
+})
+
+const cache = new InMemoryCache()
+const apolloClient = new ApolloClient({
+  link: errorLink.concat(httpLink),
+  cache
+})
+export { apolloClient, DefaultApolloClient }
